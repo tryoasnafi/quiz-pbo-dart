@@ -1,34 +1,42 @@
 import 'package:quiz_pbo_dart/manusia.dart';
 
 class Mahasiswa extends Manusia {
-  String nim, nilai_huruf;
-  int nilai_angka;
+  String _nim, _nilai_huruf;
+  int _nilai_angka;
 
-  String grade_nilai(nilai_angka) {
-    if (nilai_angka >= 85 && nilai_angka <= 100) {
-      nilai_huruf = 'A';
-    } else if (nilai_angka >= 75) {
-      nilai_huruf = 'B+';
-    } else if (nilai_angka >= 65) {
-      nilai_huruf = 'B';
-    } else if (nilai_angka >= 60) {
-      nilai_huruf = 'C+';
-    } else if (nilai_angka >= 55) {
-      nilai_huruf = 'C';
-    } else if (nilai_angka >= 40) {
-      nilai_huruf = 'D';
-    } else if (nilai_angka >= 0) {
-      nilai_huruf = 'E';
+  set nilai_angka(int nilai_angka) {
+    _nilai_angka = nilai_angka;
+  }
+
+  set nim(String nim) {
+    _nim = nim;
+  }
+
+  String grade_nilai(nilai) {
+    if (nilai >= 85 && nilai <= 100) {
+      _nilai_huruf = 'A';
+    } else if (nilai >= 75) {
+      _nilai_huruf = 'B+';
+    } else if (nilai >= 65) {
+      _nilai_huruf = 'B';
+    } else if (nilai >= 60) {
+      _nilai_huruf = 'C+';
+    } else if (nilai >= 55) {
+      _nilai_huruf = 'C';
+    } else if (nilai >= 40) {
+      _nilai_huruf = 'D';
+    } else if (nilai >= 0) {
+      _nilai_huruf = 'E';
     }
-    return nilai_huruf;
+    return _nilai_huruf;
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'nim': nim,
+      'nim': _nim,
       'nama': nama,
-      'nilai_angka': nilai_angka,
-      'nilai_huruf': grade_nilai(nilai_angka),
+      'nilai_angka': _nilai_angka,
+      'nilai_huruf': grade_nilai(_nilai_angka),
     };
   }
 }
